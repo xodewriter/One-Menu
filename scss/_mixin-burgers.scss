@@ -1,0 +1,235 @@
+// =============================================================================
+//  There are 3 different buttons we can mixin
+//  1. Basic X  2. Left Arrow  3. Right Arrow
+// =============================================================================
+
+$btn-color: transparent;
+$btn-color--hover: transparent;
+$btn-size: 48px;
+$burger-color: get( $palette, primary, darkest );
+$burger-space: 14px;
+$burger-transition: all 150ms ease-in;
+
+
+// --------------- Basic Hamburger --------------- // 
+
+@mixin burger {
+    // Burger button container
+  .btn {
+    @include mq-xs {
+      opacity: 1;
+      z-index: 10000;
+      cursor: pointer;
+      position: fixed;
+      top: 4px;
+      left: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $btn-color;
+      height: $btn-size;
+      width: $btn-size;
+    }
+    @include mq-md {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  
+
+  .btn:hover {
+    background: $btn-color--hover;
+  }
+
+  // Burger Pseudos, Top & Bottom Line
+
+  .burger,
+  .burger::before,
+  .burger::after {
+    content: '';
+    height: 5%;
+    width: 55%;
+    background: $burger-color;
+    transition: $burger-transition;
+  }
+
+  .burger::before {
+    position: absolute;
+    top: $burger-space;
+  }
+
+  .burger::after {
+    position: absolute;
+    bottom: $burger-space;
+  }
+
+  // Burger States, Add Class on Event
+
+  .btn.open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .burger.open {
+    background: none;
+  }
+
+  .burger.open::before {
+    transform: translate(0, 9px) rotate(45deg);
+  }
+
+  .burger.open::after {
+    transform: translate(0, -9px) rotate(-45deg);
+  }
+}
+
+// --------------- Burger Left --------------- // 
+
+@mixin burger-left {
+  // Burger button container
+  .btn {
+    @include mq-xs {
+      opacity: 1;
+      z-index: 9999;
+      cursor: pointer;
+      position: fixed;
+      top: 4px;
+      left: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $btn-color;
+      height: $btn-size;
+      width: $btn-size;
+    }
+    @include mq-md {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+
+  .btn:hover {
+    background: $btn-color--hover;
+  }
+
+  // Burger Pseudos, Top & Bottom Line
+
+  .burger,
+  .burger::before,
+  .burger::after {
+    content: '';
+    height: 5%;
+    width: 55%;
+    background: $burger-color;
+    transition: $burger-transition;
+  }
+
+  .burger::before {
+    position: absolute;
+    top: $burger-space;
+  }
+
+  .burger::after {
+    position: absolute;
+    bottom: $burger-space;
+  }
+
+  // Burger States, Add Class on Event
+
+  .btn.open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .burger.open {
+    width: 48%;
+    background: auto;
+  }
+
+  .burger.open::before {
+    width: 29%;
+    transform: translate(-1px, 4px) rotate(-45deg);
+  }
+
+  .burger.open::after {
+    width: 29%;
+    transform: translate(-1px, -4px) rotate(45deg);
+  }
+}
+
+
+// --------------- Burger Right --------------- // 
+
+@mixin burger-right {
+  // Burger button container
+  .btn {
+    @include mq-xs {
+      opacity: 1;
+      z-index: 9999;
+      cursor: pointer;
+      position: fixed;
+      top: 4px;
+      left: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $btn-color;
+      height: $btn-size;
+      width: $btn-size;
+    }
+    @include mq-md {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+
+  .btn:hover {
+    background: $btn-color--hover;
+  }
+
+  // Burger Pseudos, Top & Bottom Line
+
+  .burger,
+  .burger::before,
+  .burger::after {
+    content: '';
+    height: 5%;
+    width: 55%;
+    background: $burger-color;
+    transition: $burger-transition;
+  }
+
+  .burger::before {
+    position: absolute;
+    top: $burger-space;
+  }
+
+  .burger::after {
+    position: absolute;
+    bottom: $burger-space;
+  }
+
+  // Burger States, Add Class on Event
+
+  .btn.open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .burger.open {
+    width: 48%;
+    background: auto;
+  }
+
+  .burger.open::before {
+    width: 29%;
+    transform: translate(11px, 4px) rotate(45deg);
+  }
+
+  .burger.open::after {
+    width: 29%;
+    transform: translate(11px, -4px) rotate(-45deg);
+  }
+}

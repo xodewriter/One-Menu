@@ -1,0 +1,15 @@
+// =============================================================================
+//  While ems or rems are used for defining most sizes, pxs are used for 
+//  grid breakpoints and container widths because the viewport width is in
+//  pixels and does not change with the font size.
+// =============================================================================
+
+// X is for x-axis and Y is for Y-axis, X is not used b/c it is the default
+
+$breakpoints: (
+  xs   : 0,        // mobile
+  sm   : 576px,    // tablets
+  md   : 768px,    // laptops
+  lg   : 992px,    // desktops
+  xl   : 1200px    // xl monitors
+);

@@ -1,0 +1,31 @@
+// Color Palette
+
+$palette: (
+  primary: (
+    lightest    : hsl(80, 61%, 90%),
+    lighter     : hsl(80, 61%, 68%),
+    light       : hsl(80, 61%, 46%),
+    base        : hsl(80, 61%, 42%), //yellowgreen
+    dark        : hsl(80, 61%, 36%),
+    darker      : hsl(80, 61%, 24%),
+    darkest     : hsl(84, 56%, 12%)
+  ),
+  lights: (
+    lightest    : hsl(0, 0%, 100%), // white
+    lighter     : hsl(0, 0%, 97%), 
+    light       : hsl(0, 0%, 93%),
+    base        : hsl(0, 0%, 90%),
+    dark        : hsl(0, 0%, 87%),
+    darker      : hsl(0, 0%, 80%),
+    darkest     : hsl(0, 0%, 73%),
+  ),
+  darks: (
+    lightest    : hsl(0, 0%, 28%),
+    lighter     : hsl(0, 0%, 24%),
+    light       : hsl(0, 0%, 15%),
+    base        : hsl(0, 0%, 13%),
+    dark        : hsl(0, 0%, 11%),
+    darker      : hsl(0, 0%, 8%),
+    darkest     : hsl(0, 0%, 0%) // black
+  )
+);

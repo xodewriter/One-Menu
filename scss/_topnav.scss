@@ -1,0 +1,333 @@
+// =====================================================================================
+//  HOW TO PREVENT HEIGHT FROM COLLAPSING:
+//  NOTE: .topnav should not have 100vh b/c child elements will add up to push to 100vh
+//  1) .container is the parent on .menu-a and .menu-b
+//      i ) .menu-a and .menu-b should add to 100vh 
+//     ii )  DO NOT  add vh to .topnav because it's children will push size to 100vh
+//  2) .menu-a is parent for .logo and .scroller, make sure both add up to 100%
+// =====================================================================================
+
+// Hamburger button to push menu
+// Usage: include either burger, burger-left, or burger-right
+// Don't: change the HTML attribute
+@include burger;
+
+// --------------- Topnav Root --------------- // 
+
+.topnav {
+  transition: left 200ms ease-out;
+  @include mq-xs {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: -$nav-push-size;
+    width: $nav-push-size;
+    background: get( $palette, lights, lightest );
+  }
+  @include mq-md {
+    position: relative;
+    left: auto;
+    align-self: center;
+    display:flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+// --------------- Topnav Container --------------- // 
+
+// Scrollable only on Small VH
+
+.topnav .container {
+  @include mq-xs {
+    width: 100%;
+    height: auto;
+  }
+  @include mq-md {
+    display: flex;
+    align-items: center;
+    width: 80%;
+  }
+}
+
+// --------------- Menu A --------------- // 
+
+// Menu A Container
+
+.topnav .menu-a {
+  @include mq-xs {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 66vh;
+  }
+  @include mq-md {
+    flex-direction: row;
+    height: auto;
+  }
+}
+
+// Menu A Scroller
+
+.topnav .menu-a .scroller {
+  @include mq-xs {
+    overflow-y: scroll;
+    align-self: stretch;
+    height: 65%;
+  }
+  @include mq-md {
+    overflow-y: hidden;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+// Menu A Link Row
+
+.topnav .menu-a a {
+  @include mq-xs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 0;
+    width: 100%;
+    color: get( $palette, primary, darker );
+  }
+  @include mq-md {
+    padding: 0;
+  }
+
+}
+
+// First Child, First Row
+
+.topnav .menu-a a:first-child {
+  @include mq-xs {
+    margin-top: 4px;
+  }
+  @include mq-md {
+    margin-top: 0;
+  }
+}
+
+// Last Child, Last Row
+
+.topnav .menu-a a:last-child {
+  @include mq-xs {
+    margin-bottom: 2px;
+  }
+  @include mq-md {
+    margin-bottom: 0;
+  }
+}
+
+// Menu A Logo
+
+.topnav .menu-a .logo {
+  @include mq-xs {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 35%;
+    margin: 0 0 0 0;
+    padding: 0;
+    background: get( $palette, primary, base );
+  }
+  @include mq-md {
+    height: auto;
+    align-items: center;
+    padding: 10px 14px;
+    // border: 2px solid get( $palette, primary, darker );
+    box-shadow: 0px 0px 12px 0px rgb(140, 140, 140);
+  }
+}
+
+.topnav .menu-a .logo:hover {
+  background: get( $palette, primary, light );
+}
+
+// Menu A Logo Text
+
+.topnav .menu-a .logo h3 {
+  @include mq-xs {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin: 12px 0 16px 12px;
+    padding-left: 13px;
+    color: get( $palette, primary, darkest );
+    border-left: 3px solid get( $palette, primary, darkest );
+    height: 60px;
+  }
+  @include mq-md {
+    margin: 0;
+    border-left: 0;
+    padding: 0 6px;
+    text-align: center;
+    color: white;
+  }
+}
+
+// Menu A Link Icon
+
+.topnav .menu-a .icn {
+  @include mq-xs {
+    margin: 0 12px 0 8px;
+  }
+  @include mq-md {
+    display: none;
+  }
+}
+
+// Menu A Link Text
+
+.topnav .menu-a span {
+  @include mq-xs {
+    flex-grow: 1;
+    color: get( $palette, primary, base );
+  }
+  @include mq-md {
+    align-self: center;
+    padding: 26px 16px;
+    border: 8px solid transparent;
+  }
+}
+
+.topnav .menu-a span:hover {
+  @include mq-xs {
+    color: get( $palette, primary, light );
+  }
+}
+
+// Menu A Link Arrow
+
+.topnav .menu-a .arrow {
+  @include mq-xs {
+    margin-right: 8px;
+  }
+  @include mq-md {
+    display: none;
+  }
+}
+
+// --------------- Menu B --------------- // 
+
+// Menu B Container
+
+.topnav .menu-b {
+  @include mq-xs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 8px 0 16px 0;
+    width: $nav-push-size;
+  }
+  @include mq-sm {
+    flex-direction: row;
+  }
+  @include mq-md {
+    width: auto;
+    padding: 0;
+  }
+}
+
+// Menu B Base Links
+
+.topnav .menu-b a {
+  @include mq-xs {
+    width: 80%;
+    padding: 16px;
+    margin: 4px 8px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid get( $palette, primary, base );
+    border-radius: 4px;
+  }
+  @include mq-sm {
+    width: 40%;
+    margin-left: 16px;
+  }
+  @include mq-md {
+    text-transform: capitalize;
+    margin: 0;
+    width: auto;
+  }
+}
+
+// Menu B Login
+
+.topnav .menu-b .login {
+  @include mq-xs {
+    color: get( $palette, primary, base);
+    background: transparent;
+  }
+  @include mq-md {
+    margin-right: 12px;
+    border: 0;
+  }
+}
+
+// Menu B Login:Hover
+
+.topnav .menu-b .login:hover {
+  @include mq-xs {
+    color: get( $palette, primary, light );
+    border: 2px solid get( $palette, primary, light );
+  }
+  @include mq-md {
+    border: 0;
+  }
+}
+
+// Menu B Signup
+
+.topnav .menu-b .signup {
+  color: get( $palette, lights, lightest );
+  background: get( $palette, primary, base );
+}
+
+// Menu B Signup:Hover
+
+.topnav .menu-b .signup:hover {
+  background: get( $palette, primary, light );
+  border: 2px solid get( $palette, primary, light);
+}
+
+// --------------- Topnav Menu States --------------- // 
+
+// Pushes Topnav Open
+
+.o-topnav {
+  left: 0;
+  width: $nav-push-size;
+}
+
+
+// --------------- Styling for Smaller VH --------------- // 
+
+@media all and (max-width: 768px) and (max-height: 500px) {
+  .topnav .container {
+    overflow-y: scroll;
+    height: 100vh;
+  }  
+  .topnav .menu-a {
+    position: relative;
+    height: auto;
+  }  
+  .topnav .menu-a .logo {
+    height: 144px;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+  .topnav .menu-b {
+    position: relative;
+    height: auto;
+  }
+}

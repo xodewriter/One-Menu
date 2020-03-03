@@ -1,0 +1,178 @@
+// Section container
+
+.hero {
+  @include mq-xs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background: get( $palette, lights, light );
+  }
+  @include mq-md {
+    position: absolute;
+    top: 0;
+    align-self: center;
+    width: 100%;
+    padding: 0 10%;
+    flex-direction: row;
+  }
+}
+
+.hero > .container {
+  @include mq-xs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 0px 12px 0px rgb(140, 140, 140);
+  }
+  @include mq-md {
+    flex-direction: row;
+  }
+}  
+
+.hero  .left {
+  @include mq-xs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    width: 100%;
+    background: complement(get( $palette, primary, base ));
+  }
+  @include mq-md {
+    width: 42%;
+  }
+}
+
+// 1 Icon in Circle
+
+.hero h1 {
+  @include mq-xs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+  }
+  @include mq-sm {
+    flex-direction: row;
+  }
+  @include mq-md {
+    flex-direction: column;
+  }
+}
+
+// MENU Span Text
+
+.hero h1 .text {
+  @include mq-xs {
+    font-size: 6.25vh;
+  }
+  @include mq-sm {
+    font-size: 9vh;
+    margin-left: 18px;
+  }
+  @include mq-md {
+    font-size: 6.25vh;
+    margin-left: 0;
+  }
+}
+
+.hero .right {
+  @include mq-xs {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    width: 100%;
+  }
+  @include mq-md {
+    padding: 32px;
+    width: 58%;
+  }
+}
+
+.hero .right ul {
+  @include mq-xs {
+    list-style: none;
+    font-size: 19px;
+  }
+  @include mq-md {
+    list-style: none;
+    font-size: 21px;
+  }
+}
+
+.hero .right ul li {
+  @include mq-xs {
+    display: flex;
+    align-items: flex-start;
+    line-height: 38px;
+    margin-bottom: 1px;
+  }
+  @include mq-xs {
+    line-height: 48px;
+  }
+}
+
+// Checkmark in circle
+
+.hero .right ul img {
+  @include mq-xs {
+    margin-top: 10px;
+    margin-left: 16px;
+    width: 26px;
+    height: 26px;
+  }
+  @include mq-md {
+    margin-left: 16px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.hero .right li {
+  display: flex;
+  align-items: center;
+}
+
+.hero  h1 {
+  @include mq-xs {
+    padding: 0;
+    font-size: 7.1vh;
+    line-height: 0.63;
+    text-align: center;
+    margin: 0;
+    color: white;
+  }
+  @include mq-md {
+    font-size: 7.5vh;
+  }
+}
+
+.hero h1 .icn {
+  @include mq-xs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vh;
+    font-weight: bold;
+    border: 9px solid white;
+    min-height: 170px;
+    min-width: 170px;
+    border-radius: 50%;
+  }
+  @include mq-md {
+    font-size: 11vh;
+  }
+}
+
+
+.hero p {
+  font-size: 3vh;
+}
